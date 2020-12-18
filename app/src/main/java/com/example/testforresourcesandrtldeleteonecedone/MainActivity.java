@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editText;
 
     // TODO: 12/16/2020
-//    part 2
-//    -[]  Must display Spanish on spanish locale and Arabic on arabic (including arabic digits)
+//    part 3
+//  - [ ]  Resource precedency
 
 
     @Override
