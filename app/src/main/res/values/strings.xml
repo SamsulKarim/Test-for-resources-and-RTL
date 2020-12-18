@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Test for resources and RTL (Delete Onece Done)</string>
+    <string name="app_name">Test for resources and RTL</string>
+    <string name="enter_text">Enter text</string>
+    <string name="without_solution">Without solution: %1$s</string>
+    <string name="with_solution">With solution: %1$s</string>
+    <string name="enter">Enter</string>
+
+
+
 </resources>

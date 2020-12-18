@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView localeTextView,versionTextView, withSolutionTextView, withoutSolutionTextView;
@@ -16,13 +18,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView rpImageView,directionImageView;
     EditText editText;
 
+    // TODO: 12/16/2020
+//    part 2
+//    -[]  Must display Spanish on spanish locale and Arabic on arabic (including arabic digits)
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeView();
-
+        setup();
     }
 
     private void initializeView(){
@@ -39,21 +45,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    private void setup(){
+        settingLocale();
+        getVersionCode();
+
+    }
+
+
+
 
     @Override
     public void onClick(View view) {
         handleText();
     }
 
-
-
     private void handleText(){
 
        String text =  editText.getText().toString();
-       withoutSolutionTextView.setText(text);
-
+       withoutSolutionTextView.setText(getString(R.string.without_solution,text));
+       withSolutionTextView.setText(getString(R.string.with_solution,text));
 
     }
 
+
+    private void settingLocale(){
+        Locale primaryLocale = getResources().getConfiguration().getLocales().get(0);
+        String locale = primaryLocale.getDisplayName();
+        localeTextView.setText(locale);
+    }
+
+    private void getVersionCode(){
+        int versionCode = BuildConfig.VERSION_CODE;
+        String versionName = BuildConfig.VERSION_NAME;
+        versionTextView.setText("Version: "+versionCode+" - "+versionName);
+    }
 
 }
