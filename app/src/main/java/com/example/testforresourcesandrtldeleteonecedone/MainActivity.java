@@ -75,9 +75,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getVersionCode(){
+        Locale primaryLocale = getResources().getConfiguration().getLocales().get(0);
         int versionCode = BuildConfig.VERSION_CODE;
         String versionName = BuildConfig.VERSION_NAME;
-        versionTextView.setText("Version: "+versionCode+" - "+versionName);
+        String localeVersionCode = String.format(primaryLocale,"%d",versionCode);
+        versionTextView.setText("Version: "+localeVersionCode+" - "+versionName);
     }
 
 }
